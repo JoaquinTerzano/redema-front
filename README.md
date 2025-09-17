@@ -1,12 +1,45 @@
-# React + Vite
+# redema-front
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Configuración del entorno
 
-Currently, two official plugins are available:
+1. Se requiere Node.js para ejecutar la aplicación. [Descargar](https://nodejs.org/es/download)
+2. Se recomienda Visual Studio Code como IDE. [Descargar](https://code.visualstudio.com/)
+3. Se recomienda instalar la extensión de ESLint (Microsoft) para detectar errores.
+4. Se recomienda instalar la extensión de Prettier (Prettier), usar Prettier como Default Formatter y activar Format On Save.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Comandos útiles
 
-## Expanding the ESLint configuration
+- ´npm install´ instala las dependencias. Ejecutar siempre después de hacer un pull.
+- ´npm run --dev´ ejecuta la aplicación en modo developer.
+- ´npx eslint --fix´ eslint detecta errores en el proyecto y corrige los que puede.
+- ´npx prettier . --write´ prettier formatea todo el código del proyecto.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Estructura del proyecto
+
+```
+redema-front/
+├── src/
+│   ├── main.tsx                        // define las rutas
+│   ├── global.css                      // estilo de todas páginas
+│   ├── components/
+│   │   ├── shared/                     // componentes personalizados
+│   │   └── ui/                         // componentes importados
+│   └── else/                           // páginas que NO usan el MainLayout
+│       ├── GoogleLogin.jsx             // página para iniciar sesión
+│       └── admin/                      // páginas para el rol administrador
+│           └── ...
+│   └── main/                           // páginas que usan el MainLayout
+│       ├── MainLayout.jsx              // implementa las barras de navegación lateral y superior
+│       └── pages/
+│           ├── Home.jsx                // página inicial
+│           ├── Post.jsx                // página para crear publicación
+│           ├── Profile.jsx             // página para ver perfil
+│           ├── Settings.jsx            // página para configuraciones
+│           ├── View.jsx                // página para ver publicaciones
+│           └── Browse.jsx              // página para navegar entre las publicaciones
+│   └── models/
+│       └── ...
+│   └── services/
+│       └── ...
+├── eslint.config.js                    // configuración de eslint
+```
